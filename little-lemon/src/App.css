@@ -1,18 +1,40 @@
+/* ======== تنسيقات عامة وتخطيط الصفحة ======== */
+
+/* تنسيقات الجسم والخط */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* تنسيقات الكود */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* تنسيق التطبيق */
 .App {
   text-align: center;
 }
 
+/* شعار التطبيق */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* حركة الشعار */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+/* رأس الصفحة */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,10 +46,12 @@
   color: white;
 }
 
+/* رابط */
 .App-link {
   color: #61dafb;
 }
 
+/* حركة الشعار */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,15 +61,120 @@
   }
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-.site-header { padding: 12px 0; display: block; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; }
-.logo { height: 48px; width: auto; }
-.site-nav .nav-list { list-style: none; display: flex; gap: 18px; padding: 0; margin: 0; }
-.site-nav a { text-decoration: none; }
+/* ======== تنسيقات تخطيط Grid للصفحة ======== */
+
+/* الكونتينر الرئيسي */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* العناصر داخل الكونتينر */
+.item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* ======== تنسيقات الهيدر والقوائم ======== */
+
+.site-header {
+  padding: 12px 0;
+  display: block;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.site-nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+}
+
+/* إخفاء نص للقرّاء الشاشة */
 .visually-hidden {
   position: absolute !important;
-  height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
 
+/* ======= تنسيق العناوين ======= */
+h1 {
+  font-size: 2.5rem;
+  color: #333333;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #444444;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: #555555;
+  margin-bottom: 0.6rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  color: #777777;
+  margin-bottom: 0.4rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: #888888;
+  margin-bottom: 0.3rem;
+}
+
+/* ======= تنسيق الفقرات ======= */
+p {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* ======= تنسيق السبان ======= */
+span {
+  color: #f4ce14; /* لون مميز */
+  font-weight: bold;
+}
+
+/* ======= تنسيق التنقل (nav) ======= */
+nav {
+  background-color: #495E57;
+  padding: 10px 20px;
+}
