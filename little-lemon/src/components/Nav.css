@@ -1,0 +1,34 @@
+.nav {
+  display: flex;
+  align-items: center; /* تمركز عمودي */
+  justify-content: center; /* تمركز أفقي للنص بالكامل */
+  gap: 120px; /* مسافة بين اللوقو والقائمة */
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #F4CE14;
+}

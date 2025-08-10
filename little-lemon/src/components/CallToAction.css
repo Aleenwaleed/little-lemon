@@ -1,0 +1,67 @@
+.call-to-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background-color: #495E57; /* خلفية فاتحة */
+  gap: 40px;
+}
+
+.cta-text {
+  max-width: 50%;
+  text-align: left;
+  margin-left: 350px;
+}
+
+.cta-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #F4CE14; /* لون نص */
+}
+
+.cta-text p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.cta-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #F4CE14; /* لون أصفر ليموني */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333333;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d9bb12;
+}
+
+.cta-image img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 350px;
+}
+
+/* Responsive للهواتف */
+@media (max-width: 768px) {
+  .call-to-action {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-text, .cta-image {
+    max-width: 100%;
+  }
+
+  .cta-image img {
+    max-width: 100%;
+  }
+}
