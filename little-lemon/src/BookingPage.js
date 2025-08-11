@@ -1,10 +1,11 @@
 import React from "react";
-import BookingForm from "./BookingForm";
+import BookingForm from "./components/BookingForm";
+import Nav from "./components/Nav";
 
 export default function BookingPage() {
   return (
     <main style={{ padding: "20px" }}>
-      <h1>Reserve a Table</h1>
+      <Nav />
       <BookingForm />
     </main>
   );

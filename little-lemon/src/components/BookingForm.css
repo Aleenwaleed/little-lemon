@@ -1,0 +1,114 @@
+.booking-form {
+  max-width: 480px; /* كبرنا العرض */
+  width: 90%;
+  margin: 30px auto;
+  padding: 30px 35px; /* زودنا البادينج شوي */
+  background-color: #fffbea;
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+
+.name-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* عشان الحقول تنزل تحت لو ضاق المكان */
+}
+
+.name-field {
+  flex: 1 1 180px; /* مرونة في الحجم وأدنى عرض */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* مهم عشان النصوص ما تخرج */
+}
+
+.booking-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  white-space: normal; /* عشان يلتف النص ولا يطلع خارج */
+}
+
+.booking-input,
+.booking-select {
+  padding: 10px 14px;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.25s ease;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.booking-input:focus,
+.booking-select:focus {
+  outline: none;
+  border-color: #fbc02d;
+  box-shadow: 0 0 8px rgba(251, 192, 45, 0.6);
+}
+
+.booking-submit {
+  margin-top: 12px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: white;
+  background-color: #fbc02d;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-submit:hover {
+  background-color: #c79400;
+}
+
+.booking-header {
+  text-align: center;
+  font-size: 2.6rem; /* حجم أكبر */
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #0f0f0f; /* أصفر ليموني */
+
+}
+
+.confirmation {
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  background-color: #f0f9ff; /* Light blue background */
+  border: 2px solid #3b82f6; /* Blue border */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); /* Soft blue shadow */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e3a8a; /* Dark blue text */
+  text-align: center;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.confirmation h3 {
+  margin-bottom: 18px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.confirmation p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
