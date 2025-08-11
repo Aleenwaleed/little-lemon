@@ -1,0 +1,57 @@
+.testimonials-section {
+  background-color: #f8f8f8; /* لون خلفية القسم */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 220px; /* تصغير العرض */
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.customer-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.testimonial-card h3 {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.testimonial-card p {
+  font-size: 0.85rem;
+  color: #555;
+}

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center; /* تمركز عمودي */
   justify-content: center; /* تمركز أفقي للنص بالكامل */
-  gap: 120px; /* مسافة بين اللوقو والقائمة */
+  gap: 100px; /* مسافة بين اللوقو والقائمة */
   padding: 10px 20px;
   background-color: #ffffff;
   color: #000000;
@@ -17,7 +17,7 @@
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 60px;
   margin: 0;
   padding: 0;
 }

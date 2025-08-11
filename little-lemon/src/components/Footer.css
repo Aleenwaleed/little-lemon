@@ -1,0 +1,51 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f8f8f8; /* خلفية الشريط */
+  color: #495E57;
+  padding: 30px 60px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  height: 150px;
+  width: auto;
+  margin-left: 170px;
+}
+
+.footer-sections {
+  display: flex;
+  gap: 50px;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  min-width: 10px;
+  margin-right: 170px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li:hover {
+  color: #F4CE14; /* أصفر ليموني عند الهور */
+}
