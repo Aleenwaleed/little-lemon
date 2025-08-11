@@ -1,0 +1,37 @@
+.homepage-header {
+  display: flex;
+  justify-content: space-between; /* يخلي النص على اليسار والزر على اليمين */
+  align-items: center;
+  padding: 20px;
+  background-color: #fff; /* خلفية بيضاء */
+  border-bottom: 2px solid #eee;
+}
+
+.homepage-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333; /* لون الخط */
+  margin-left: 350px;
+}
+
+.menu-button {
+  background-color: #f4ce14; /* أصفر ليموني */
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* الشادو */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 350px;
+}
+
+.menu-button:hover {
+  background-color: #e0bb0d; /* أغمق عند الهوفر */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* شادو أكبر عند الهوفر */
+}
+
+
+
