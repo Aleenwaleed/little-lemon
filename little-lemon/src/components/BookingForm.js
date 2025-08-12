@@ -1,35 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './BookingForm.css';
 
 export default function BookingForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(() => {
+    // تاريخ اليوم بصيغة YYYY-MM-DD عشان initial date يكون اليوم تلقائياً
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  });
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("none");
 
-  const [availableTimes] = useState([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00"
-  ]);
+  const [availableTimes, setAvailableTimes] = useState([]);
 
   const [reservation, setReservation] = useState(null);
 
+  // كل ما يتغير التاريخ، حدث availableTimes باستدعاء fetchAPI
+  useEffect(() => {
+    if (typeof window.fetchAPI === 'function') {
+      const dateObj = new Date(date);
+      const times = window.fetchAPI(dateObj);
+      setAvailableTimes(times);
+      // امسح وقت الحجز المحدد عشان يختار المستخدم من جديد
+      setTime("");
+    } else {
+      // fallback لو fetchAPI مش موجود (مثلاً في مرحلة التطوير)
+      setAvailableTimes([
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ]);
+    }
+  }, [date]);
+
   function handleSubmit(event) {
     event.preventDefault();
-    setReservation({
-      firstName,
-      lastName,
-      date,
-      time,
-      guests,
-      occasion
-    });
+
+    if (typeof window.submitAPI === 'function') {
+      const formData = {
+        firstName,
+        lastName,
+        date,
+        time,
+        guests,
+        occasion
+      };
+      const success = window.submitAPI(formData);
+      if (success) {
+        setReservation(formData);
+      } else {
+        alert("There was an error submitting your reservation.");
+      }
+    } else {
+      // fallback: فقط اعرض الحجز محلياً
+      setReservation({
+        firstName,
+        lastName,
+        date,
+        time,
+        guests,
+        occasion
+      });
+    }
   }
 
   return (
@@ -78,6 +115,7 @@ export default function BookingForm() {
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
+          disabled={availableTimes.length === 0} // معطل إذا ما في أوقات متاحة
         >
           <option value="">Select a time</option>
           {availableTimes.map((t) => (
