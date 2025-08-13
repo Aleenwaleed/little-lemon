@@ -12,10 +12,10 @@ function Homepage() {
   return (
     <>
       <Nav />
-      <CallToAction />
-      <Specials />
+      <CallToAction id="CallToAction-section"/>
+      <Specials id="Spescials-section" />
       <CustomersSay />
-      <Chicago />
+      <Chicago id="About-section"/>
       <Footer />
     </>
   );

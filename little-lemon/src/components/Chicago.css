@@ -55,3 +55,7 @@
   right: 300px;
   z-index: 1;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../assets1/logov.png"; // عدل المسار لو تحتاج
+import logo from "../assets1/logov.png"; 
+import { Link } from 'react-router-dom';
 import "./Footer.css";
 
 export default function Footer() {
@@ -14,12 +15,12 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Navigation</h3>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Menu</li>
-            <li>Reservation</li>
-            <li>Order Online</li>
-            <li>Login</li>
+            <li><a href='#CallToAction-section' className="nav-link">Home</a></li>
+            <li><a href='#About-section' className="nav-link">About</a></li>
+            <li><a href="#Spescials-section" className="nav-link">Mune</a></li>
+            <li><Link to="/Booking" className="nav-link">Reservations</Link></li>
+            <li><a href="#Spescials-section" className="nav-link">Order Online</a></li>
+            <li><Link to="/" className="nav-link">Login</Link></li>
           </ul>
         </div>
 

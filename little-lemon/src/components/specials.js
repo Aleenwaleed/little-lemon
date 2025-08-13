@@ -34,7 +34,7 @@ const specialsData = [
 
 export default function Specials() {
   return (
-    <div className="specials-wrapper">
+    <div id='Spescials-section' className="specials-wrapper">
       {/* Header Section */}
       <header className="specials-header">
         <h1 className="specials-title">This Week Specials!</h1>

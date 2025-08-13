@@ -1,55 +1,45 @@
 import React, { useState, useEffect } from "react";
 import './BookingForm.css';
 
+// دالة لتحديث الأوقات بناءً على التاريخ
+export const updateTimes = (date) => {
+  if (typeof window.fetchAPI === 'function') {
+    return window.fetchAPI(date);
+  }
+  // fallback إذا ما فيه fetchAPI
+  return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+};
+
+// دالة تهيئة الأوقات
+export const initializeTimes = () => {
+  return updateTimes(new Date());
+};
+
 export default function BookingForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [date, setDate] = useState(() => {
-    // تاريخ اليوم بصيغة YYYY-MM-DD عشان initial date يكون اليوم تلقائياً
     const today = new Date();
     return today.toISOString().split('T')[0];
   });
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("none");
-
-  const [availableTimes, setAvailableTimes] = useState([]);
-
+  const [availableTimes, setAvailableTimes] = useState(initializeTimes());
   const [reservation, setReservation] = useState(null);
 
-  // كل ما يتغير التاريخ، حدث availableTimes باستدعاء fetchAPI
+  // تحديث الأوقات لما يتغير التاريخ
   useEffect(() => {
-    if (typeof window.fetchAPI === 'function') {
-      const dateObj = new Date(date);
-      const times = window.fetchAPI(dateObj);
-      setAvailableTimes(times);
-      // امسح وقت الحجز المحدد عشان يختار المستخدم من جديد
-      setTime("");
-    } else {
-      // fallback لو fetchAPI مش موجود (مثلاً في مرحلة التطوير)
-      setAvailableTimes([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00"
-      ]);
-    }
+    const dateObj = new Date(date);
+    setAvailableTimes(updateTimes(dateObj));
+    setTime("");
   }, [date]);
 
   function handleSubmit(event) {
     event.preventDefault();
 
     if (typeof window.submitAPI === 'function') {
-      const formData = {
-        firstName,
-        lastName,
-        date,
-        time,
-        guests,
-        occasion
-      };
+      const formData = { firstName, lastName, date, time, guests, occasion };
       const success = window.submitAPI(formData);
       if (success) {
         setReservation(formData);
@@ -57,22 +47,14 @@ export default function BookingForm() {
         alert("There was an error submitting your reservation.");
       }
     } else {
-      // fallback: فقط اعرض الحجز محلياً
-      setReservation({
-        firstName,
-        lastName,
-        date,
-        time,
-        guests,
-        occasion
-      });
+      setReservation({ firstName, lastName, date, time, guests, occasion });
     }
   }
 
   return (
     <>
       <h2 className="booking-header">Reserve a Table</h2>
-      <form onSubmit={handleSubmit} className="booking-form">
+      <form  id="booking-section" onSubmit={handleSubmit} className="booking-form">
         <div className="name-container">
           <div className="name-field">
             <label htmlFor="first-name" className="booking-label">First Name</label>
@@ -115,7 +97,7 @@ export default function BookingForm() {
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
-          disabled={availableTimes.length === 0} // معطل إذا ما في أوقات متاحة
+          disabled={availableTimes.length === 0}
         >
           <option value="">Select a time</option>
           {availableTimes.map((t) => (

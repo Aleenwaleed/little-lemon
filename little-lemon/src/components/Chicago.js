@@ -5,7 +5,7 @@ import restaurant2 from "../assets1/Mario and Adrian b.jpg";
 
 export default function Chicago() {
   return (
-    <section className="chicago-section">
+    <section  id="About-section" className="chicago-section">
       <div className="chicago-text">
         <h1 className="chicago-title">Little Lemon</h1>
         <p className="chicago-subtitle">Chicago</p>

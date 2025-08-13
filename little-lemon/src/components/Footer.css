@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #f8f8f8; /* خلفية الشريط */
+  background-color: #f8f8f8; 
   color: #495E57;
   padding: 30px 60px;
   gap: 40px;
@@ -47,5 +47,9 @@
 }
 
 .footer-section ul li:hover {
-  color: #F4CE14; /* أصفر ليموني عند الهور */
+  color: #F4CE14; 
+}
+
+html {
+  scroll-behavior: smooth;
 }
